@@ -1,0 +1,14 @@
+{
+  "firstName": "Francis",
+  "lastName": "Smith",
+  "salary": [
+    {
+      "value": 5000,
+      "created": "2023-01-01T00:00:00.0Z",
+      "period": {
+        "start": "2023-01-01T00:00:00.0Z",
+        "end": "2023-12-31T23:59:59.9Z"
+      }
+    }
+  ]
+}
