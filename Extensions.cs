@@ -33,15 +33,18 @@ public static class Extensions
             return default;
         }
 
-        // remove outside periods
-        var insideValues = values.Where(x => x.IsInside(evaluationDate)).ToList();
-        if (!insideValues.Any())
+        var timeValues = values.
+            // remove values created after the evaluation date
+            Where(x => x.Created <= evaluationDate &&
+                       // remove outside periods
+                       x.IsInside(evaluationDate)).ToList();
+        if (!timeValues.Any())
         {
             return default;
         }
 
         // select the evaluated value (last created)
-        var evaluationValue = insideValues.OrderByDescending(x => x.Created).First();
-        return evaluationValue;
+        var timeValue = timeValues.OrderByDescending(x => x.Created).First();
+        return timeValue;
     }
 }
